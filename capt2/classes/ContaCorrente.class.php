@@ -26,6 +26,17 @@ class ContaCorrente extends Conta
 
     return true;
   }
+
+  final function Transferir($Conta, $Valor)
+  {
+    if ($this->Retirar($Valor)) {
+      $Conta->Depositar($Valor);
+    }
+
+    if ($this->Titular != $Conta->Titular) {
+      $this->Retirar($this->TaxaTransferencia);
+    }
+  }
 }
 
 ?>
