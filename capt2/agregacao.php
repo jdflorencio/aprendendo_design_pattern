@@ -30,6 +30,8 @@ $cesta->AdicionaItem($produto2);
 $cesta->AdicionaItem($produto3);
 $cesta->AdicionaItem($produto4);
 
+echo 
+
 echo $cesta->ExibeLista();  
 echo "<br />";
 echo 'Total:' . $cesta->CalculaTotal();
