@@ -24,4 +24,12 @@ class Produto
             return $this->$propriedade * (1 + (self::MARGEM / 100));
         }
     }
+
+    function __call($metodo, $parametros) {
+
+        echo "Você executou o método: {$metodo}";
+        foreach($parametros as $key => $parametro) {
+            echo "\tParâmetro $key: $parametro <br />";
+        }
+    }
 }
