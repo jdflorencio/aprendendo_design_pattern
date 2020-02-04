@@ -36,10 +36,14 @@ class TFilter extends TExpression
             foreach($value as $x) {
                 if (is_integer($x)) {
                     $foo[] = $x;
+
                 } else if (is_string($x)) {
-                    $foor[] = "'$x'";
+                    $foo[] = "'$x'";
+                    
+
                 }
             }
+    
             $result = '(' . implode(',', $foo) .')';
 
         } else if (is_string($value)) {
@@ -52,7 +56,8 @@ class TFilter extends TExpression
             $result = $value ? 'TRUE' : 'FALSE';
         } else {
             $result = $value;
-        }        
+        }
+        return $result;
     }
     
     /**
