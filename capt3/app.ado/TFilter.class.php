@@ -3,7 +3,6 @@
 /*
 *  ESTA CLASSE PROVÊ UM INERFACE PARA DEFINIÇÃO DE FILTROS DE SELEÇÃO
 */
-
 class TFilter extends TExpression
 {
     private $variable;
@@ -34,13 +33,12 @@ class TFilter extends TExpression
     {
         if (is_array($value)){
             foreach($value as $x) {
+                
                 if (is_integer($x)) {
                     $foo[] = $x;
 
                 } else if (is_string($x)) {
                     $foo[] = "'$x'";
-                    
-
                 }
             }
     
