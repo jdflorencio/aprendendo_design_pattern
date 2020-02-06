@@ -44,7 +44,7 @@ class TCriteria extends TExpression {
      * @return void
      */
     public function setProperty($property, $value) {
-        $this->properties[$properties] = $value;
+        $this->properties[$property] = $value;
     }
 
     /**
@@ -54,6 +54,7 @@ class TCriteria extends TExpression {
      * @return void
      */
     public function getProperty($property) {
+        
         return $this->properties[$property];
     }
 }
