@@ -1,6 +1,6 @@
 <?php
 
-class TLoggerXML extends TLoggerXML
+class TLoggerXML extends TLogger
 {
     public function write($message) {
         $time = date("Y-m-d H:i:s");

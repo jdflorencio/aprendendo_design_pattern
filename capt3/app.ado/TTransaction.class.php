@@ -59,7 +59,7 @@ final class TTransaction
      * @param TLooger $logger
      * @return void
      */
-    public static function setLogger(TLooger $logger) : void
+    public static function setLogger(TLogger $logger)
     {
         self::$logger = $logger;
     }
@@ -75,7 +75,7 @@ final class TTransaction
      */
     public static function log($message) : void
     {
-        if (self::$looger) {
+        if (self::$logger) {
             self::$logger->write($message);
         }
     }
