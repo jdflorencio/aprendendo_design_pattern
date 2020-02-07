@@ -15,16 +15,17 @@ final class TConnection
         
         $user = $db['user'];
         $pass = $db['pass'];
-        $name = $db['name'];
+        $dbname = $db['dbname'];
         $host = $db['host'];
         $type = $db['type'];
+        $port = $db['port'];
 
         switch($type) {
             case 'pgsql':
-                $conn = new PDO("pgsql:dbname={$name};user={$user}; password={$pass}; host=$host");
+                $conn = new PDO("pgsql:dbname={$dbname};user={$user}; password={$pass}; host=$host");
                 break;
             case 'mysql':
-                $conn = new PDO("mysql:host={$host};port=3307;dbname={$dbname}", $user, $pass);
+                $conn = new PDO("mysql:host={$host};port={$port};dbname={$dbname}", $user, $pass);
                 break;
         }
 
