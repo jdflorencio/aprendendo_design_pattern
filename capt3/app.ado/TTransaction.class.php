@@ -23,9 +23,9 @@ final class TTransaction
      * @return void
      */
     public static function get() {
+
         return self::$conn;
     }
-
 
     /**
      * Desfaz todas as operações realizadas da transação.
@@ -42,7 +42,6 @@ final class TTransaction
         }
 
     }
-
 
     public static function close()
     {

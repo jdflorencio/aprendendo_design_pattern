@@ -6,13 +6,15 @@ final class TConnection
 
     public static function open($name) {
 
-        if (file_exists("app.config/{$name}.ini")) {
-            $db = parse_ini_file("app.config/{$name}.ini");
+
+      
+        if (file_exists("../capt3/app.config/{$name}.ini")) {
+            $db = parse_ini_file("../capt3/app.config/{$name}.ini");
 
         } else {
-            throw new Exception("Arquivo '$name' não encontrado");
+            throw new Exception("Arquivo {$name} não encontrado: {$db} ");
         }
-        
+
         $user = $db['user'];
         $pass = $db['pass'];
         $dbname = $db['dbname'];
@@ -28,7 +30,7 @@ final class TConnection
                 $conn = new PDO("mysql:host={$host};port={$port};dbname={$dbname}", $user, $pass);
                 break;
         }
-
+        
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     }

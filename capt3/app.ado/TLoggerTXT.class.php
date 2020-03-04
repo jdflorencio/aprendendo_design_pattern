@@ -8,7 +8,7 @@ class TLoggerTXT extends TLogger
         $text = "$time :: $message \n";
         $handle = fopen($this->filename, 'a');
         fwrite($handle, $text);
-        fclose($handler);
+        fclose($handle);
     }
 
 }

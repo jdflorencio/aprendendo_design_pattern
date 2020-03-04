@@ -4,7 +4,6 @@
      protected $data;
 
      public function __construct($id = NULL) {
-
          if ($id) {
              $object = $this->load($id);
              if($object) {
@@ -17,7 +16,7 @@
        unset($this->id);
    }
 
-   private function __set($prop, $value)
+   public function __set($prop, $value)
    {
        // verifica se o metodo set_<propriedade>
 
@@ -33,7 +32,7 @@
        }
    }
 
-   private function __get($prop)
+   public function __get($prop)
    {
        if (method_exists($this, 'get_'.$prop)){
            // executa o método get_<propriedade>
@@ -54,9 +53,9 @@
    private function getEntity()
    {
        // obtem o nome da classe
-
-       $classe = strtolower(get__class($this));
+       $classe = strtolower(get_class($this));
        // retorna o nome da classe - "Record"
+       
        return substr($classe, 0, -6);
    }
 
@@ -87,7 +86,11 @@
     */
    public function store()
    {
-       if ( empty($this->data['id'] or ($this->load($this->id))) ) {
+
+    echo $this->load(($this->id));
+
+    
+       if ( empty($this->data['id'] || ($this->load($this->id))) ) {
            
             $this->id = $this->getLast() +1;
             $sql = new TSqlInsert;
@@ -116,7 +119,7 @@
        }
 
     //    Obtem transação ativa
-    if($conn == TTransaction::get()) {
+    if($conn = TTransaction::get()) {
         // faz o log e executa o SQL
         TTransaction::log($sql->getInstruction());
         $result = $conn->exec($sql->getInstruction());
@@ -129,7 +132,6 @@
         throw new Exception('Não há transação ativa!!');
     }
    }
-
 
    public function load($id)
    {
@@ -148,6 +150,7 @@
     // Obtém transação ativa
 
     if ($conn = TTransaction::get()) {
+
         // cria mensagem de log e executa a consulta 
 
         TTransaction::log($sql->getInstruction());
@@ -163,11 +166,62 @@
     } else {
         // se não tiver transação, retorna um exceção
         throw new Exception('Não há transação ativa!!');
-        
+
     }    
    }
 
    public function delete($id = NULL) {
-       
-   }
+
+        // o ID é o parametro ou a propriedade ID   
+        $id  = $id ? $id : $this->id;
+        /// instacia uma instrução de DELETE 
+        $sql = new TSqlDelete;
+        $sql->setEntity($this->getEntity());
+
+        $criteria = new TCriteria($criteria);
+
+        $criteria->add(new TFilter('id', '=', $id));        
+        // define o criterio de seleção baseado no ID
+        $sql->setCriteria($criteria);
+
+        //obtém transação ativa
+
+        if ($conn =  TTransaction::get()) {
+            // faz o log e executa o SQL
+
+            TTransaction::log($sql->getInstruction());
+            $result =  $conn->exec($sql->getInstruction());
+            // retorna o resultado 
+
+            return $result;
+        } else {
+            // se não tiver transação, retorna a transação 
+            throw new Exception('Não há transação ativa!!');
+        }
+    }
+
+    private function getLast() {
+        // inicia transação
+
+        if($conn = TTransaction::get()) {
+            
+            // Instancia instrução de SELECT
+            $sql = new TSqlSelect;
+            $sql->addColumn('max(id) as ID');
+            $sql->setEntity($this->getEntity());
+
+            //criar o log e executa instrução SQL
+            TTransaction::log($sql->getinstruction());
+            $result = $conn->Query($sql->getinstruction());
+
+            //retona os dados do banco 
+
+            $row = $result->fetch();
+            return $row[0];
+        } else {
+            // se não tiver transação, retornar um exceção
+
+            throw new Exception('Não há transação ativa!!');
+        }
+    }
  }
