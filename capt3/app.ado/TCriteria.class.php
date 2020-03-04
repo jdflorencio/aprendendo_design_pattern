@@ -24,7 +24,7 @@ class TCriteria extends TExpression {
     }
 
     public function dump() {
-        if (is_array($this->expressions)) {  
+        if (is_array($this->expressions)) {
 
             foreach ($this->expressions as $i => $expression) {
                     $operator = $this->operators[$i];

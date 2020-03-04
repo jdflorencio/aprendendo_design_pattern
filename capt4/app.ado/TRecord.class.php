@@ -41,8 +41,7 @@
        } else {
            // retorna o valor da propriedade
            return $this->data[$prop];
-       }      
-       
+       }
    }
 
    /**
@@ -55,7 +54,7 @@
        // obtem o nome da classe
        $classe = strtolower(get_class($this));
        // retorna o nome da classe - "Record"
-       
+
        return substr($classe, 0, -6);
    }
 
@@ -86,13 +85,10 @@
     */
    public function store()
    {
-
-    echo $this->load(($this->id));
-
     
-       if ( empty($this->data['id'] || ($this->load($this->id))) ) {
+       if ( empty($this->data['id'] || ($this->load($this->id)))) {
            
-            $this->id = $this->getLast() +1;
+            $this->id = $this->getLast() + 1;
             $sql = new TSqlInsert;
             $sql->setEntity($this->getEntity());
 
@@ -101,7 +97,7 @@
             }
 
        } else {
-        //    instancia instruções de update
+            //instancia instruções de update
             $sql = new TSqlUpdate;
             $sql->setEntity($this->getEntity());
             // cria m criterio de seleção baseado no ID
