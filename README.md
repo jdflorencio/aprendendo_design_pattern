@@ -15,3 +15,33 @@ As características obrigatórias que devem ser atendidas por um padrão de proj
    * Consequências.
    
  ### Padrões GoF ('Gang of Four')
+O livro "Padrões de Projeto: soluções reutilizáveis de software orientado a objetos", os padrões "GoF" são divididos em 23 tipos em 3 categorias diferentes, são eles:
+
+**Padrões de Criação**
+* Abstract Factory
+* Builder
+* Factory Method
+* Prototype
+* Singleton
+
+**Padrões Estruturais**
+* Adapter
+* Bridge
+* Composite
+* Decorator
+* Facade
+* Flyweight
+* Proxy
+
+**Padrões Comportamentais**
+* Chain of Responsibility
+* Command
+* Interpreter
+* Iterator
+* Mediator
+* Memento
+* Observer
+* State
+* Strategy
+* Template Method
+* Visitor
