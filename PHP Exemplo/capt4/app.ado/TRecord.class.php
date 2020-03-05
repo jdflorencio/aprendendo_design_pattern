@@ -93,7 +93,8 @@
             $sql->setEntity($this->getEntity());
 
             foreach ($this->data as $key =>$value) {
-                $sql->setRowData($key, $this->key);
+                $sql->setRowData($key, $value);
+                
             }
 
        } else {
@@ -107,7 +108,6 @@
             $sql->setCriteria($criteria);
 
             foreach ($this->data as $key => $value) {
-
                 if ($key !== id ) {
                     $sql->setRowData($key, $this->$key);
                 }
