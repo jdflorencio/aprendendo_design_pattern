@@ -1,0 +1,8 @@
+2020-03-05 15:16:20 :: ** persistindo o curso   $fabio  
+2020-03-05 15:16:20 :: SELECT * FROM aluno WHERE (id = NULL) 
+2020-03-05 15:16:20 :: SELECT max(id) as ID FROM aluno 
+2020-03-05 15:16:20 :: INSERT INTO aluno (nome,endereco,telefone,cidade,id) values ('Fábio Locatelli','Rua Merlin','(51) 2222 - 1111','Lajeado',23) 
+2020-03-05 15:16:20 :: ** persistindo o curso  $julia 
+2020-03-05 15:16:20 :: SELECT * FROM aluno WHERE (id = NULL) 
+2020-03-05 15:16:20 :: SELECT max(id) as ID FROM aluno 
+2020-03-05 15:16:20 :: INSERT INTO aluno (nome,endereco,telefone,cidade,id) values ('Júlia Haubert','Rua Merlin','(51) 2222-2222','Lajeado',24) 
