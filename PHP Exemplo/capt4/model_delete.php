@@ -23,13 +23,13 @@ try {
     TTransaction::open('simpleERP');
     TTransaction::setLogger(new TLoggerTXT('tmp/log5.txt'));
     TTransaction::log(" ** Apagando da primeira forma ");
-    $aluno = new AlunoRecord(1);
+    $aluno = new AlunoRecord(3);
  
     $aluno->delete();
 
     TTransaction::log("** Apagando da segunda forma ");
     $modelo = new AlunoRecord;
-    $modelo->delete(2);
+    $modelo->delete(4);
 
     TTransaction::close();
 
