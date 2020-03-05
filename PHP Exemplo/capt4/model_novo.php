@@ -25,7 +25,7 @@ try {
     TTransaction::open('simpleERP');
 
     // define o arquivo para o logs
-    TTransaction::setLogger(new TLoggerTXT('/tmp/log1.txt'));
+    TTransaction::setLogger(new TLoggerTXT('tmp/log1.txt'));
 
     // armazena esta frase no arquivo de log
     TTransaction::log("** inserido alunos");

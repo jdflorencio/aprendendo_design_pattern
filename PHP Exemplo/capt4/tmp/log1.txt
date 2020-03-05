@@ -1,0 +1,14 @@
+2020-03-05 10:47:15 :: ** inserido alunos 
+2020-03-05 10:47:15 :: SELECT * FROM aluno WHERE (id = NULL) 
+2020-03-05 10:47:15 :: SELECT max(id) as ID FROM aluno 
+2020-03-05 10:47:15 :: INSERT INTO aluno (nome,endereco,telefone,cidade,id) values ('Daline da conceição','rua da conceicao','(51) 1111-2222','cruzeiro do sul',13) 
+2020-03-05 10:47:15 :: SELECT * FROM aluno WHERE (id = NULL) 
+2020-03-05 10:47:15 :: SELECT max(id) as ID FROM aluno 
+2020-03-05 10:47:15 :: INSERT INTO aluno (nome,endereco,telefone,cidade,id) values ('Willian Scatolla','Rua de fatima','(51)1111-4444','encatando',14) 
+2020-03-05 10:47:15 :: ** inserindo cursos 
+2020-03-05 10:47:15 :: SELECT * FROM curso WHERE (id = NULL) 
+2020-03-05 10:47:15 :: SELECT max(id) as ID FROM curso 
+2020-03-05 10:47:15 :: INSERT INTO curso (descricao,duracao,id) values ('Orientação a objetos com PHP',24,13) 
+2020-03-05 10:47:15 :: SELECT * FROM curso WHERE (id = NULL) 
+2020-03-05 10:47:15 :: SELECT max(id) as ID FROM curso 
+2020-03-05 10:47:15 :: INSERT INTO curso (descricao,duracao,id) values ('Desenvolvendo com PHP-GTK',32,14) 
