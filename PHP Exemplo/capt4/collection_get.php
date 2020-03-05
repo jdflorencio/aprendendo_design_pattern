@@ -13,6 +13,7 @@ function __autoload($classe)
         include_once "../capt3/app.ado/{$classe}.class.php";
     }
 }
+
  class AlunoRecord extends TRecord {}
  class TurmaRecord extends TRecord {}
  class InscricaoRecord extends TRecord {}
@@ -49,10 +50,6 @@ function __autoload($classe)
     $criteria = new TCriteria;
 
     $criteria->add(new TFilter('nota', '>= ', 7));
-
-
-
-
 
  } catch (Exception $e) {
      echo '<b> ERRO: </b> ' . $e->getMessage();
